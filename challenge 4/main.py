@@ -7,28 +7,31 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from scripts import *
 
-data = load_data("challenge 4/data.txt")
+data = load_data("challenge 4/data2.txt")
 data = data.split(" ")
 data = "".join(data)
 
 
-# total = 0
-# for i in range(LargestWidth):
-#     comb = math.factorial(i+1)
-#     total += comb
-# print(f"total : {total}")
+###part B
+data = data.lower()
+data= data[0:50]
 
-# data = data[0:41]
-# for i in range(LargestWidth):
-#     length = i + 1
-#     column = transcription_columizer(length,data)
-#     comb = math.factorial(length)
-#     #print(comb)
-#     array = [x+1 for x in range(length)]
-#     combinationList = [list(tation) for tation in permutations(array,length)]
-#     print(f"onto {length}")
-#     for tation in combinationList:
-#         solved = transcription_solver(data,tation)
-#         solved = "".join(solved)
-#         if solved[0:9] == target:
-#             print(tation)
+successful = BruteForceAffine(data,['charles','ada','warne'])
+print(successful)
+
+
+####part A
+#letter = common(data)
+#print(f"E: {letter[0][0]}, T: {letter[1][0]}\n")
+
+
+# #MRCHARLESBABBAGEDORSETSTREETMARYLEBONELONDON
+
+# width = 24
+
+# columned = transcription_columizer(width,data)
+
+# solved = transcription_solver(columned,width, [3,4,2,5,1,0,9,6,8,15,7,10,11,12,14,17,13,16,21,18])
+
+# for i in range(15):
+#     print(solved[i])

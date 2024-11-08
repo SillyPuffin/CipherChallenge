@@ -1,0 +1,8 @@
+Cyphers to look for
+
+transmutation
+
+caeser - find most common then find offset x -> x + b
+affine - find most common for e and t then solve by substituiton x -> ax + b
+keyword - find most common and solve by trial and error
+vignere - multiple caeser shifts in a pattern

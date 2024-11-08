@@ -1,8 +1,26 @@
+alpha = "abcdefghijklmnopqrstuvwxyz"
+
 def load_data(path):
     with open(path,"r") as f:
         data = f.read()
 
     return data
+
+def insertionSort(arr):
+    n = len(arr)  # Get the length of the array
+      
+    if n <= 1:
+        return  # If the array has 0 or 1 element, it is already sorted, so return
+ 
+    for i in range(1, n):  # Iterate over the array starting from the second element
+        key = arr[i]  # Store the current element as the key to be inserted in the right position
+        j = i-1
+        while j >= 0 and key[1] < arr[j][1]:  # Move elements greater than key one position ahead
+            arr[j+1] = arr[j]  # Shift elements to the right
+            j -= 1
+        arr[j+1] = key  # Insert the key in the correct position
+    arr.reverse()
+    return arr
 
 def common(text):
     let_dict = {}
@@ -13,16 +31,17 @@ def common(text):
             else:
                 let_dict[letter] = 1
 
-    max = 0
-    mletter = ""
-    for letter in let_dict:
-        if let_dict[letter] > max:
-            mletter = letter
-            max = let_dict[letter]
+    ListedData = [(key,let_dict[key]) for key in let_dict]
+    ListedData = insertionSort(ListedData)
     
     # print(let_dict)
 
-    return mletter
+    return (ListedData[0],ListedData[1])
+
+def get_index(letter):
+    alpha = "abcdefghijklmnopqrstuvwxyz"
+    return alpha.index(letter)
+
 
 def find_shift(first,second):
     alpha = "abcdefghijklmnopqrstuvwxyz"
@@ -30,31 +49,6 @@ def find_shift(first,second):
     secondindex = alpha.index(second)
     return secondindex - firstindex
 
-def transcription_columizer(columnSize,data) -> list: 
-    count = 0
-    columned = []
-    s = ""
-    for item in data:
-        if count < columnSize:
-            s += item
-            count += 1
-        else:
-            columned.append(s)
-            s = ""
-            count = 1
-            s += item
 
-    columned.append(s)
-    return columned
 
-def transcription_solver(data_set, code) -> list:
-    newSet = []
-    for row in data_set:
-        s = ""
-        for num in code:
-            try:
-                s += row[num]
-            except IndexError:
-                pass
-        newSet.append(s)
-    return newSet
+
