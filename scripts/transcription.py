@@ -33,3 +33,12 @@ def transcription_solver(data_set,width, code) -> list:
                 s += row[item]
         newSet.append(s)
     return newSet
+
+def get_multiple(length):
+    multiples = []
+    for i in range(length):
+        if length%(i+1) == 0:
+            multiples.append((i+1))
+            
+    multiples.sort()
+    return multiples
