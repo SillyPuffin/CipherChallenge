@@ -35,4 +35,26 @@ data = "".join(data)
 
 ##data 2
 #H is most common followed by E:   E -> H : T -> E
-print(common(data))
+#print(common(data))
+
+# print(LetterDistance('E',data))
+
+steppedData = returnStepLetters(4,data)
+
+print(steppedData)
+
+print(common(steppedData)[0])
+shift = find_shift("e",common(steppedData)[0][0])
+
+newSteppedDate = ""
+for letter in steppedData:
+    index = get_index(letter)
+    
+    #remove shift
+    index -= shift
+    #do modulus to ensure its not out of bounds e.g -3 = 23
+    index += 26
+    index %= 26
+    newSteppedDate += alpha[index]
+
+print(newSteppedDate)

@@ -36,12 +36,11 @@ def common(text):
     
     # print(let_dict)
 
-    return (ListedData[0],ListedData[1])
+    return ListedData
 
 def get_index(letter):
     alpha = "abcdefghijklmnopqrstuvwxyz"
     return alpha.index(letter)
-
 
 def find_shift(first,second):
     alpha = "abcdefghijklmnopqrstuvwxyz"

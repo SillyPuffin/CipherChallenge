@@ -1,16 +1,15 @@
 from .utils import get_index
 from .utils import alpha
 
-def generate_lookup(aCo, bCo):
+def generate_lookup(aCount, bCount):
     lookup = {}
     for i in range(26):
-        index = i * aCo
-        index += bCo
+        index = i * aCount
+        index += bCount
         index %= 26
         lookup[index] = i
     
     return lookup
-
 
 def BruteForceAffine(data,targets) -> list:
     datas = []
