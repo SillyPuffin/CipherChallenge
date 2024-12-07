@@ -7,6 +7,7 @@ def load_data(path):
     return data
 
 def insertionSort(arr):
+    """sorts a tuple list based on the value of the second number"""
     n = len(arr)  # Get the length of the array
       
     if n <= 1:

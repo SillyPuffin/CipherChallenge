@@ -39,6 +39,20 @@ numberstoy = {
 finished_string = ''
 alpha = 'abcdefghijklmnopqrstuvwxy'
 
+newpairs = [f'{pair[0]}{pair[1]}' for pair in pairs]
+let_dict = {}
+for pair in newpairs:
+    if pair != " ":
+        if pair in list(let_dict.keys()):
+            let_dict[pair] += 1
+        else:
+            let_dict[pair] = 1
+
+ListedData = [(key,let_dict[key]) for key in let_dict]
+ListedData = insertionSort(ListedData)
+
+print(ListedData)
+
 for pair in pairs:
     x = letterstox[pair[0]]
     y = numberstoy[pair[1]]
